@@ -8,7 +8,6 @@ package edu.century.project;
 public class Athlete {
     private String name;
     private Country homeCountry;
-    private Sport specialty;
     private int skill;
     private int medals;
     
@@ -18,7 +17,6 @@ public class Athlete {
     public Athlete() {
         this.name = "DEFAULT";
         this.homeCountry = Country.selectRandomCountry();
-        this.specialty = Sport.selectRandomSport();
         this.skill = 5;
         this.medals = 0;
     }
@@ -31,10 +29,9 @@ public class Athlete {
 	 * @param skill
 	 * @param medals
 	 */
-    public Athlete (String name, Country home, Sport specialty, int skill, int medals) {
+    public Athlete (String name, Country home, int skill, int medals) {
         this.name = name;
         this.homeCountry = home;
-        this.specialty = specialty;
         this.skill = skill;
         this.medals = medals;
     }
@@ -83,23 +80,7 @@ public class Athlete {
 	 * 
 	 * @return
 	 */
-    public Sport getSpecialty() {
-        return specialty;
-    }
-    
-    /**
-     * 
-     * @param specialty
-     */
-    public void setSpecialty(Sport specialty) {
-        this.specialty = specialty;
-    }
-    
-    /**
-	 * 
-	 * @return
-	 */
-    public int getSkill() {
+    public double getSkill() {
         return skill;
     }
     
@@ -146,7 +127,6 @@ public class Athlete {
         
         if ((getName().equalsIgnoreCase (a.getName())) &&
             (getHomeCountry() == a.getHomeCountry()) &&
-            (getSpecialty() == a.getSpecialty()) &&
             (getSkill() == a.getSkill()) &&
             (getMedals() == a.getMedals()))
             return true;
@@ -157,7 +137,7 @@ public class Athlete {
     
     public String toString () {
         return "Athlete name: " + getName() + ", Home Country: " + getHomeCountry() +
-                ", Specialty: " + getSpecialty() + ", skill level: " + getSkill() + 
+                ", skill level: " + getSkill() + 
                 ", number of medals: " + medals;
     }
     
